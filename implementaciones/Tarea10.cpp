@@ -44,6 +44,5 @@ int main(){
     }
 
     //-- Do some stuff
-    for(int i=0; i<nConjunto1; i++)
-        cout << "Star point is (" << conjunto1[i].getX() << ", " << conjunto2[i].getY() << ")\n"; 
+    
 }
