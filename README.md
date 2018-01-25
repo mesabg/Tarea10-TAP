@@ -92,3 +92,8 @@ GDTAP
 
 ---
 ## Sobre los algoritmos geométricos
+
+---
+## Sobre las distintas compilaciones
+Para compilar ejecuta el comando **sh compiler.sh <language:{'python', 'java', 'cpp'}> <test-case:{'C0', 'C1', ...}>**
+Ejemplo :: *sh compiler.sh java C0*
