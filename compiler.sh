@@ -29,7 +29,7 @@ function run {
         cd ..
     fi
 
-    if [[ $1 == "python" && -f "salida/Tarea10.py" && -f "casos/$2.in" ]]; then
+    if [[ $1 == "python" && -f "implementaciones/Tarea10.py" && -f "casos/$2.in" ]]; then
         echo "Running python..."
         python implementaciones/Tarea10.py < casos/$2.in
     fi

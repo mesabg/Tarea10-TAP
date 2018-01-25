@@ -13,10 +13,16 @@ public:
     }
 
     //-- getters & setters
-    int getX(){ return this->x; }
-    int getY(){ return this->y; }
+    int getX() const { return this->x; }
+    int getY() const { return this->y; }
     int setX(int x){ this->x = x; }
     int setY(int y){ this->y = y; }
+
+    //-- print overload
+    friend std::ostream & operator<<(std::ostream &os, const Point &point){
+        os << "(" << point.getX() << ", " << point.getY() << ")";
+        return os;
+    }
 };
 typedef vector<Point*> vPoint;
 
