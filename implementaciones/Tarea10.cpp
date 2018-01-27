@@ -54,6 +54,12 @@ vFloat nSquareSolution(vPoint A, vPoint B){
 }
 
 
+vFloat nLogNSolution(vPoint A, vPoint B){
+    //-- Implement this function
+    vFloat distances;
+    return distances;
+}
+
 
 int main(){
     //-- Declare variables
