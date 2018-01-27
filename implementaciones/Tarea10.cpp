@@ -23,8 +23,35 @@ public:
         os << "(" << point.getX() << ", " << point.getY() << ")";
         return os;
     }
+
+    //-- General functions
+    float distance(Point* destiny) const {
+        return sqrt( float((destiny->getX() - this->x)*(destiny->getX() - this->x)) + float((destiny->getY() - this->y)*(destiny->getY() - this->y)) );
+    }
 };
 typedef vector<Point*> vPoint;
+typedef vector<float> vFloat;
+std::ostream & operator<<(std::ostream &os, const vFloat &vector){
+    for(int i=0; i<vector.size(); i++) os << vector[i] << " ";
+    return os;
+}
+
+
+vFloat nSquareSolution(vPoint A, vPoint B){
+    vFloat distances, temp;
+    int size = 0;
+    float sum = 0.0f;
+    for(int i=0; i<B.size(); i++){
+        temp.clear();
+        sum = 0.0f;
+        for(int j=0; j<A.size(); j++) temp.push_back( B[i]->distance(A[j]) );
+        sort(temp.begin(), temp.end());
+        size = temp.size() <= 5 ? temp.size() : 5;
+        for(int j=0; j<size; j++) sum += temp[j];
+        distances.push_back(sum);
+    }
+    return distances;
+}
 
 
 
@@ -50,5 +77,5 @@ int main(){
     }
 
     //-- Do some stuff
-    
+    cout << nSquareSolution(conjunto1, conjunto2) << endl;
 }
