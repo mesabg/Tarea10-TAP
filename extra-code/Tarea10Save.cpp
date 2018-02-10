@@ -29,87 +29,6 @@ public:
         return sqrt( float((destiny->getX() - this->x)*(destiny->getX() - this->x)) + float((destiny->getY() - this->y)*(destiny->getY() - this->y)) );
     }
 };
-
-
-
- 
-const int k = 2;
- 
-
-namespace KP {
-    class Node {
-    private:
-        vPoint point;
-        Node *left, *right;
-
-    public:
-        Node(){
-            this->left = NULL;
-            this->right = NULL;
-        }
-
-        Node* getLeft() const { return this->left; }
-        Node* getRight() const { return this->right; }
-    };
-
-
-    class Tree {
-    private:
-        Node* root;
-    };
-};
-
-
-// A structure to represent node of kd tree
-struct Node
-{
-    int point[k]; // To store k dimensional point
-    Node *left, *right;
-};
- 
-// A method to create a node of K D tree
-struct Node* newNode(int arr[])
-{
-    struct Node* temp = new Node;
- 
-    for (int i=0; i<k; i++)
-       temp->point[i] = arr[i];
- 
-    temp->left = temp->right = NULL;
-    return temp;
-}
- 
-// Inserts a new node and returns root of modified tree
-// The parameter depth is used to decide axis of comparison
-Node *insertRec(Node *root, int point[], unsigned depth)
-{
-    // Tree is empty?
-    if (root == NULL)
-       return newNode(point);
- 
-    // Calculate current dimension (cd) of comparison
-    unsigned cd = depth % k;
- 
-    // Compare the new point with root on current dimension 'cd'
-    // and decide the left or right subtree
-    if (point[cd] < (root->point[cd]))
-        root->left  = insertRec(root->left, point, depth + 1);
-    else
-        root->right = insertRec(root->right, point, depth + 1);
- 
-    return root;
-}
- 
-// Function to insert a new point with given point in
-// KD Tree and return new root. It mainly uses above recursive
-// function "insertRec()"
-Node* insert(Node *root, int point[])
-{
-    return insertRec(root, point, 0);
-}
-
-
-
 typedef vector<Point*> vPoint;
 typedef vector<float> vFloat;
 std::ostream & operator<<(std::ostream &os, const vFloat &vector){
@@ -138,12 +57,6 @@ vFloat nSquareSolution(vPoint A, vPoint B){
 vFloat nLogNSolution(vPoint A, vPoint B){
     //-- Implement this function
     vFloat distances;
-
-    //-- Build KP tree based on A vector
-    for (int i=0; i<A.size(); i++){
-
-    }
-
     return distances;
 }
 
